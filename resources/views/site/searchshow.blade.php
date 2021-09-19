@@ -66,6 +66,7 @@
 </div>
 </div>
 </div>
+<p>Added {{$job->created_at->diffForHumans()}}</p>
 </div>
 </div>
 
