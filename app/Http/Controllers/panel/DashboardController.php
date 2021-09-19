@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\Location;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,10 +19,11 @@ class DashboardController extends Controller
     }
 
     public function siteIndex(){
-        $usercount = DB::table('users')->count();
-        $jobcount = DB::table('job')->count();
-        $categorycount = DB::table('category')->count();
-        $locationcount = DB::table('location')->count();
+        $usercount = User::all()->where('status', 'a')->count();
+        $jobcount = Job::all()->where('status', 'a')->count();
+        $categorycount = Category::all()->where('status', 'a')->count();
+        $locationcount = Location::all()->where('status', 'a')->count();
+        // DB::table('users')
         $data_ = [
             'usercount' => $usercount,
             'categorycount' => $categorycount,

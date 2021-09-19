@@ -60,6 +60,7 @@ Route::name('site')->group(function(){
     Route::get('/', [DashboardController::class, 'siteIndex'])->name('.index');
     Route::get('/bycity', [SearchController::class, 'bycity'])->name('.bycity');
     Route::get('/bycategory', [SearchController::class, 'bycategory'])->name('.bycategory');
+    Route::get('/contact', [SiteUserController::class, 'contact'])->name('.contact');
 
     // Searching
     Route::get('/search', [SearchController::class, 'search'])->name('.search');
@@ -69,11 +70,11 @@ Route::name('site')->group(function(){
     Route::middleware(['auth'])->group(function(){
         // Web Panel
         Route::get('/logout', [SiteLoginController::class, 'logout'])->name('.logout');
-       
+
         // Editing account informations
         Route::get('/editaccount', [SiteUserController::class, 'editaccount'])->name('.editaccount');
         Route::post('/editaccount/submit', [SiteUserController::class, 'editaccountsubmit'])->name('.editaccount.submit');
-        Route::get('/contact', [SiteUserController::class, 'contact'])->name('.contact');
+
     });
     Route::get('/login', [SiteLoginController::class, 'index'])->name('.login-page');
     Route::post('/login', [SiteLoginController::class, 'login'])->name('.login');
