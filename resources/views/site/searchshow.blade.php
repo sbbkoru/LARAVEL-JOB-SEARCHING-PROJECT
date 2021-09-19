@@ -28,6 +28,7 @@
 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
 <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 <p style="font-size: 23px;">{{$job->text}}</p>
+<p style="font-size: 23px;">at {{ $job->location->name }} , {{ $job->location->province->name }}</p>
 </div>
 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 <ul>

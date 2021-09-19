@@ -50,7 +50,7 @@ class SearchController extends Controller
         });
 
         $searchData_ = [
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id ?? null,
             'location_id' => $request->location_id,
             'category_id' => $request->category_id,
             'job_' => $job_,

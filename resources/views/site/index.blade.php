@@ -12,9 +12,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                            @if(Auth::user())
                             <h1 class="title-4 mb-1">Welcome back
                                 <span>{{ Auth::user()->firstname}}!</span>
-                            </h1> <h1>Start searching now to find the job you are looking for.</h1>
+                            </h1> 
+                            @endif
+                            <h1>Start searching now to find the job you are looking for.</h1>
                             <hr class="line-seprate">
                         </div>
                     </div>

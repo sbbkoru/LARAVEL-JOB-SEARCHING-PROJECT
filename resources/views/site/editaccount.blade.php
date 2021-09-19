@@ -64,15 +64,6 @@
 <span class="help-block"></span>
 </div>
 </div>
-<div class="row form-group">
-<div class="col col-md-3">
-<label for="password" class=" form-control-label">Password</label>
-</div>
-<div class="col-12 col-md-9">
-<input type="password" id="password" name="password" class="form-control" required value="{{$user->password}}">
-<span class="help-block"></span>
-</div>
-</div>
 <div class="card-footer">
     <input type="submit" class="btn btn-success" value="Submit">
 </div>

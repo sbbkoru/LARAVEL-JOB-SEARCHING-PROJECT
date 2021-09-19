@@ -46,12 +46,25 @@ use App\Models\User;
                                 <i class="fas fa-address-book"></i>
                                     <span class="bot-line"></span>Contact</a>
                             </li>
+                            @if(!Auth::user())
+                            
+                            <li style="left: 150px;">
+                                <a href="{{route('site.login')}}">
+                                <i class="fas fa-sign-in-alt"></i>
+                                    <span class="bot-line"></span>Login</a>
+                            </li>
+                            <li style="left: 150px;">
+                                <a href="{{route('site.register')}}">
+                                <i class="fas fa-user-plus"></i>
+                                    <span class="bot-line"></span>Sign Up</a>
+                            </li>
+                            @endif
 
                         </ul>
                     </div>
+                    
+                    @if(Auth::user())
                     <div class="header__tool">
-
-
                         <div class="account-wrap">
                             <div class="account-item account-item--style2 clearfix js-item-menu">
 
@@ -89,6 +102,7 @@ use App\Models\User;
                             </div>
                         </div>
                     </div>
+                        @endif
                 </div>
             </div>
         </header>

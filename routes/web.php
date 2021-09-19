@@ -56,18 +56,20 @@ Route::prefix('panel1')->name('panel')->group(function (){
 });
 
 Route::name('site')->group(function(){
+    // Website Index
+    Route::get('/', [DashboardController::class, 'siteIndex'])->name('.index');
+    Route::get('/bycity', [SearchController::class, 'bycity'])->name('.bycity');
+    Route::get('/bycategory', [SearchController::class, 'bycategory'])->name('.bycategory');
+
+    // Searching
+    Route::get('/search', [SearchController::class, 'search'])->name('.search');
+    Route::post('/search/submit', [SearchController::class, 'searchsubmit'])->name('.searchsubmit');
+    Route::get('/searchshow', [SearchController::class, 'searchshow'])->name('.searchshow');
+
     Route::middleware(['auth'])->group(function(){
         // Web Panel
-        Route::get('/', [DashboardController::class, 'siteIndex'])->name('.index');
         Route::get('/logout', [SiteLoginController::class, 'logout'])->name('.logout');
-        Route::get('/bycity', [SearchController::class, 'bycity'])->name('.bycity');
-        Route::get('/bycategory', [SearchController::class, 'bycategory'])->name('.bycategory');
-
-        // Searching
-        Route::get('/search', [SearchController::class, 'search'])->name('.search');
-        Route::post('/search/submit', [SearchController::class, 'searchsubmit'])->name('.searchsubmit');
-        Route::get('/searchshow', [SearchController::class, 'searchshow'])->name('.searchshow');
-
+       
         // Editing account informations
         Route::get('/editaccount', [SiteUserController::class, 'editaccount'])->name('.editaccount');
         Route::post('/editaccount/submit', [SiteUserController::class, 'editaccountsubmit'])->name('.editaccount.submit');

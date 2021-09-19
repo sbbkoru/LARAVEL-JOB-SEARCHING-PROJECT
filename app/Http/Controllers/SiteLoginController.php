@@ -39,7 +39,7 @@ class SiteLoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('site.login');
+        return redirect()->route('site.index');
     }
 
 }
